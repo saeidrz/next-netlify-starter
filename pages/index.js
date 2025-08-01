@@ -1,4 +1,3 @@
-
 exports.handler = async function (event, context) {
   const ip =
     event.headers['x-forwarded-for'] ||
@@ -24,11 +23,9 @@ exports.handler = async function (event, context) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ content: '
-
-json\n' + JSON.stringify(log, null, 2) + '\n
-
-' })
+    body: JSON.stringify({
+      content: '```json\n' + JSON.stringify(log, null, 2) + '\n```'
+    })
   });
 
   return {
