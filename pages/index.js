@@ -19,7 +19,6 @@ exports.handler = async function (event, context) {
     timestamp: new Date().toISOString()
   };
 
-  // ارسال به Webhook (مثلاً Discord)
   await fetch('https://discord.com/api/webhooks/1399581817883070607/w92ptejt9nVYWwswLdqWnRzEFYqLmzZPahHakz_6Q5HG0vsauID65LU1bydMDhiAil7I', {
     method: 'POST',
     headers: {
