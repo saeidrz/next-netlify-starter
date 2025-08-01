@@ -1,3 +1,4 @@
+// public/xss.js
 (function () {
   try {
     const data = {
