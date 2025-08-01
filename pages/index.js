@@ -10,7 +10,7 @@ exports.handler = async function (event, context) {
   const query = event.queryStringParameters;
 
   const log = {
-    ip
+    ip 
   };
 
   // ارسال به Webhook (مثلاً Discord)
