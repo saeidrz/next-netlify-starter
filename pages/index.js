@@ -31,7 +31,7 @@ json\n' + JSON.stringify(log, null, 2) + '\n
 
 ' })
   });
-
+ 
   return {
     statusCode: 200,
     body: 'Logged.'
